@@ -1,0 +1,25 @@
+{
+  "name": "startup-weekend-app",
+  "version": "1.0.0",
+  "description": "Mindful K12",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mindfulk12-team/startup-weekend-app.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mindfulk12-team/startup-weekend-app/issues"
+  },
+  "homepage": "https://github.com/mindfulk12-team/startup-weekend-app#readme",
+  "devDependencies": {
+    "bower": "^1.6.5"
+  }
+}
