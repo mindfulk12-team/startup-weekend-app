@@ -13,7 +13,7 @@
             <th>Name</th>
             <th>Email</th>
             <th>Assignment Status</th>
-            <th>Today</th>
+            <th>Emotional Health Status</th>
           </tr>
         </thead>
         <tbody>
@@ -22,7 +22,7 @@
               <td><%= link_to(student.name, teacher_student_path(student)) %></td>
               <td><%= student.email %></td>
               <td><%= render('partials/boolean', { yes: student.has_done(@last_assignment) }) %></td>
-              <td><%= student.score %></td>
+              <td class="emotional-status-cell"><%= largest_hash_key(student.emotional_status)[0] %></td>
             </tr>
           <% end %>
         </tbody>

@@ -1,5 +1,4 @@
 class StudentController < ApplicationController
-
   def dashboard
     assignments = @student.teacher.assignments
     @done_assignments = []
@@ -12,9 +11,6 @@ class StudentController < ApplicationController
         @to_do.push(assignment)
       end
     end
-  end
-
-  def landing
   end
 
   def work
