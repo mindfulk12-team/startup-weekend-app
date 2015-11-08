@@ -17,8 +17,7 @@ ActiveRecord::Schema.define(version: 20151107234100) do
   enable_extension "plpgsql"
 
   create_table "activities", force: :cascade do |t|
-    t.json     "cloud"
-    t.text     "journal_text"
+    t.json     "content"
     t.integer  "assignment_id"
     t.integer  "student_id"
     t.datetime "created_at",    null: false
