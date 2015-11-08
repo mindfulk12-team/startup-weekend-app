@@ -41,9 +41,10 @@ ActiveRecord::Schema.define(version: 20151107234100) do
     t.text     "name"
     t.text     "email"
     t.string   "password_digest"
+    t.json     "emotional_status"
     t.integer  "teacher_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
   end
 
   create_table "teachers", force: :cascade do |t|

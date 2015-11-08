@@ -35,6 +35,7 @@ seed_teacher = Teacher.create(
     name: seed_student_name,
     email: "#{seed_student_name}@school.edu",
     teacher: seed_teacher,
+    emotional_status: {"happy" => rand(1..5), "angry" => rand(1..5), "sad" => rand(1..5), "anxious" =>rand(1..5)},
     password_digest: '1234')
 end
 

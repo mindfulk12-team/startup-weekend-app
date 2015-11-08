@@ -14,3 +14,23 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+var cellEmotions = "blue";
+$(document).on("ready", function() {
+  $('.emotional-status-cell').each(function(){
+    cellEmotions = $(this).html();
+    if (cellEmotions == "happy"){
+      $(this).css("background-color","green")
+    }
+    else if (cellEmotions == "angry"){
+      $(this).css("background-color","red")
+    }
+    else if (cellEmotions == "sad"){
+      $(this).css("background-color","blue")
+    }
+    else {
+      $(this).css("background-color","yellow")
+    }
+    $(this).html(" ")
+  })
+});
