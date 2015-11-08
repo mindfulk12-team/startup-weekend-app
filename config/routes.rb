@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  root 'teacher#dashboard'
+  root 'student#landing'
+  # root 'teacher#dashboard'
 
   get 'teacher/dashboard'
   get 'teacher/activities'
