@@ -1,24 +1,28 @@
 <div class="container">
   <div class="row">
-    div.
+    <div class="col-lg-12">
+      <h1>Assignments</h1>
+    </div>
   </div>
 
-  <div class="row-lg-12">
-    <table class="table">
-      <thead>
-        <tr>
-          <th>Type</th>
-          <th>Due</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @assignments.each do |assignment| %>
+  <div class="row">
+    <div class="col-lg-12">
+      <table class="table">
+        <thead>
           <tr>
-            <td><%= link_to(assignment.assignment_type, teacher_assignment_path(assignment)) %></td>
-            <td><%= assignment.due %></td>
+            <th>Type</th>
+            <th>Due</th>
           </tr>
-        <% end %>
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          <% @assignments.each do |assignment| %>
+            <tr>
+              <td><%= link_to(assignment.assignment_type, teacher_assignment_path(assignment)) %></td>
+              <td><%= assignment.due %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>

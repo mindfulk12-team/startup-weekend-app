@@ -1,28 +1,32 @@
 <div class="container">
-  <div class="row-lg-12">
-    <h1>Dashboard</h1>
+  <div class="row">
+    <div class="col-lg-12">
+      <h1>Dashboard</h1>
+    </div>
   </div>
 
-  <div class="row-lg-12">
-    <table class="table">
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Email</th>
-          <th>Assignment Status</th>
-          <th>Today</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @students.each do |student| %>
+  <div class="row">
+    <div class="col-lg-12">
+      <table class="table">
+        <thead>
           <tr>
-            <td><%= link_to(student.name, teacher_student_path(student)) %></td>
-            <td><%= student.email %></td>
-            <td><%= render('partials/boolean', { yes: student.has_done(@last_assignment) }) %></td>
-            <td><%= student.score %></td>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Assignment Status</th>
+            <th>Today</th>
           </tr>
-        <% end %>
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          <% @students.each do |student| %>
+            <tr>
+              <td><%= link_to(student.name, teacher_student_path(student)) %></td>
+              <td><%= student.email %></td>
+              <td><%= render('partials/boolean', { yes: student.has_done(@last_assignment) }) %></td>
+              <td><%= student.score %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>
