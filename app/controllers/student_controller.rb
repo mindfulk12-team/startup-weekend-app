@@ -20,7 +20,7 @@ class StudentController < ApplicationController
   def new_work
     @assignment = Assignment.find(params[:id])
     Activity.create(
-      content: @assignment.format_content(params[:text]),
+      content: @assignment.format_content(params[:data]),
       assignment: @assignment,
       student: @student
     )

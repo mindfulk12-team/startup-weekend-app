@@ -5,9 +5,14 @@
 
 <div id="words"></div>
 <br><br>
-<p style="text-align: center">
-  <input type="submit" class="btn btn-primary" value="Submit" />
-</p>
+
+<form action="" method="post">
+  <input id="data" type="hidden" name="data">
+  <p style="text-align: center">
+    <input type="submit" class="btn btn-primary" value="Submit" />
+  </p>
+</form>
+
 
 
 
@@ -31,10 +36,13 @@
       wordSpan.clicks = wordSpan.clicks === 3 ? 0 : wordSpan.clicks + 1;
       wordSpan.style.background = backgroundColor(wordSpan.clicks);
       wordSpan.style.color = color(wordSpan.clicks);
+      setData();
     });
 
     wordsContainer.appendChild(wordSpan);
   });
+
+  setData();
 
   function backgroundColor(clicks) {
     if (clicks === 0) return 'hsl(0, 0%, 100%)';
@@ -43,6 +51,15 @@
   function color(clicks) {
     if (clicks === 0) return '#333';
     return 'white';
+  }
+
+  function setData() {
+    var data = {};
+    var words = Array.prototype.slice.call(document.querySelectorAll('.word'));
+    words.forEach(function(word) {
+      data[word.textContent] = word.clicks;
+    });
+    document.getElementById('data').value = JSON.stringify(data);
   }
 
 </script>
