@@ -11,42 +11,50 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151107211136) do
+ActiveRecord::Schema.define(version: 20151107234100) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "activities", force: :cascade do |t|
+    t.json     "cloud"
+    t.text     "journal_text"
+    t.integer  "assignment_id"
+    t.integer  "student_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "activities", ["assignment_id"], name: "index_activities_on_assignment_id", using: :btree
+  add_index "activities", ["student_id"], name: "index_activities_on_student_id", using: :btree
+
   create_table "assignments", force: :cascade do |t|
     t.datetime "due"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "emotion_cloud_activities", force: :cascade do |t|
-    t.json     "cloud"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "journal_activities", force: :cascade do |t|
-    t.text     "content"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.text     "instruction"
+    t.text     "title"
+    t.integer  "teacher_id"
+    t.text     "assignment_type"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
   create_table "students", force: :cascade do |t|
     t.text     "name"
     t.text     "email"
+    t.string   "password_digest"
     t.integer  "teacher_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
   create_table "teachers", force: :cascade do |t|
     t.text     "name"
     t.text     "email"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "password_digest"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
+  add_foreign_key "activities", "assignments"
+  add_foreign_key "activities", "students"
 end
