@@ -28,10 +28,12 @@ seed_teacher = Teacher.create(
   email: 'mrteacher@school.edu',
   password_digest: '1234')
 
+
 (1..10).each do |i|
+  seed_student_name = Faker::Name.first_name
   Student.create(
-    name: Faker::Name.first_name,
-    email: "#{Faker::Name.last_name}@school.edu",
+    name: seed_student_name,
+    email: "#{seed_student_name}@school.edu",
     teacher: seed_teacher,
     password_digest: '1234')
 end
