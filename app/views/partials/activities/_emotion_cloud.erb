@@ -1,0 +1,91 @@
+<p>Instructions, reflect below, etc.</p>
+<p><%= @assignment.instruction %></p>
+
+
+
+<div id="words"></div>
+<br><br>
+
+<form action="" method="post">
+  <input id="data" type="hidden" name="data">
+  <p style="text-align: center">
+    <input type="submit" class="btn btn-primary" value="Submit" />
+  </p>
+</form>
+
+
+
+
+<script>
+  var words = ["excited", "proud", "joyful", "hopeful", "friendly", "energetic", "rewarded", "worthy", "motivated", "grateful", "comfortable", "belonging", "curious", "confident", "loved", "eager", "creative", "cheerful", "relaxed", "thoughtful", "engaged", "creative", "playful", "aware", "interested", "cooperative", "talkative", "kind", "polite", "silly", "safe", "calm", "content", "angry", "irritated", "frustrated", "annoyed", "hateful", "aggressive", "jealous", " sad", "vulnerable", "isolated", "lonely", "isolated", "lost", "grieving", "hopeless", "disappointed", "hungry", "sleepy", "bored", "apathetic", "inadequate", "distracted", "sensitive", "guilty", "upset", "withdrawn", "unsafe", "anxious", "stressed", "apprehensive", "overwhelmed", "worried", "frustrated", "skeptical", "shy", "afraid", "antsy", "confused", "quiet", "okay", "good", "fine"];
+
+  var wordsContainer = document.getElementById('words');
+
+  words.forEach(function(word) {
+    var wordSpan = document.createElement('span');
+    wordSpan.textContent = word;
+    wordSpan.className = 'word';
+    wordSpan.style.marginLeft = 12 + Math.random() * 30 + 'px';
+    wordSpan.style.top = Math.random() * 10 + 'px';
+
+    wordSpan.clicks = 0;
+    wordSpan.style.background = backgroundColor(wordSpan.clicks);
+    wordSpan.style.color = color(wordSpan.clicks);
+
+    wordSpan.addEventListener('click', function() {
+      wordSpan.clicks = wordSpan.clicks === 3 ? 0 : wordSpan.clicks + 1;
+      wordSpan.style.background = backgroundColor(wordSpan.clicks);
+      wordSpan.style.color = color(wordSpan.clicks);
+      setData();
+    });
+
+    wordsContainer.appendChild(wordSpan);
+  });
+
+  setData();
+
+  function backgroundColor(clicks) {
+    if (clicks === 0) return 'hsl(0, 0%, 100%)';
+    return 'hsl(216, 79%, ' + (100 - clicks * 24) + '%)';
+  }
+  function color(clicks) {
+    if (clicks === 0) return '#333';
+    return 'white';
+  }
+
+  function setData() {
+    var data = {};
+    var words = Array.prototype.slice.call(document.querySelectorAll('.word'));
+    words.forEach(function(word) {
+      data[word.textContent] = word.clicks;
+    });
+    document.getElementById('data').value = JSON.stringify(data);
+  }
+
+</script>
+
+
+<style>
+  #words {
+    text-align: center;
+    user-select: none;
+  }
+
+  .word {
+    display: inline-block;
+    position: relative;
+
+    margin: 8px 0;
+    border: 2px solid #888;
+    padding: 4px 8px;
+
+    border-radius: 5px;
+    font-size: 20px;
+    cursor: pointer;
+
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+</style>
