@@ -4,7 +4,7 @@ class CreateStudents < ActiveRecord::Migration
       t.text :name
       t.text :email
       t.string :password_digest
-
+      t.json :emotional_status
       t.references :teacher
 
       t.timestamps null: false

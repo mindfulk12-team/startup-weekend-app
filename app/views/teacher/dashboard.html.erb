@@ -10,6 +10,7 @@
           <th>Name</th>
           <th>Email</th>
           <th>Assignment Status</th>
+          <th>Emotional Health Status</th>
           <th>Today</th>
         </tr>
       </thead>
@@ -19,6 +20,7 @@
             <td><%= link_to(student.name, teacher_student_path(student)) %></td>
             <td><%= student.email %></td>
             <td><%= render('partials/boolean', { yes: student.has_done(@last_assignment) }) %></td>
+            <td><%= student.emotional_status %></td>
             <td><%= student.score %></td>
           </tr>
         <% end %>
