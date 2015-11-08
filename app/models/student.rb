@@ -1,13 +1,17 @@
 class Student < ActiveRecord::Base
   has_secure_password
   belongs_to(:teacher)
+  has_many(:activities)
 
   def score
     rand(100)
   end
 
-  def has_done(assignment=self.teacher.assignments.last)
-    # self.activities.where(assignment: assignment).count > 0
-    rand(100) > 30
+  def has_done(assignment)
+    self.activities.where(assignment: assignment).count > 0
+  end
+
+  def get_activity(assignment)
+    self.activities.where(assignment: assignment).first
   end
 end

@@ -1,4 +1,4 @@
 class Activity < ActiveRecord::Base
-  belongs_to :assignment
-  belongs_to :student
+  belongs_to(:student)
+  belongs_to(:assignment)
 end

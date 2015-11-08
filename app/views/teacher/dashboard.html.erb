@@ -16,9 +16,7 @@
       <tbody>
         <% @students.each do |student| %>
           <tr>
-            <td>
-              <%= link_to(student.name, teacher_student_path(student)) %>
-            </td>
+            <td><%= link_to(student.name, teacher_student_path(student)) %></td>
             <td><%= student.email %></td>
             <td><%= render('partials/boolean', { yes: student.has_done(@last_assignment) }) %></td>
             <td><%= student.score %></td>
