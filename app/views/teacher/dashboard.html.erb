@@ -20,7 +20,7 @@
             <td><%= link_to(student.name, teacher_student_path(student)) %></td>
             <td><%= student.email %></td>
             <td><%= render('partials/boolean', { yes: student.has_done(@last_assignment) }) %></td>
-            <td><%= largest_hash_key(student.emotional_status) %></td>
+            <td><%= largest_hash_key(student.emotional_status)[0] %></td>
             <td><%= student.score %></td>
           </tr>
         <% end %>
