@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  cloud: 
+  journal_text: MyText
+  assignment_id: 
+  student_id: 
+
+two:
+  cloud: 
+  journal_text: MyText
+  assignment_id: 
+  student_id: 
