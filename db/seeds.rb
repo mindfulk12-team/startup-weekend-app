@@ -43,10 +43,10 @@ seed_assignment = Assignment.create(
   due: DateTime.now,
   teacher: seed_teacher)
 
-# (1..10).each do |student_index|
+ (1..10).each do |student_index|
   Activity.create(
     cloud: {"surprise":0, "fear":1, "anger":1, "disgust":0, "sad":0, "happy":0,
     journal_text: Faker::Lorem.paragraph},
     assignment: seed_assignment,
-    student: Student.first)
-# end
+    student: Student.find(student_index))
+ end
