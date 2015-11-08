@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <h1><%= @assignment.title %></h1>
+      <h4>Due <%= @assignment.due %></h4>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <hr>
+    <div class="col-lg-12">
+      <%= render("partials/activities/#{@assignment.assignment_type}") %>
+    </div>
+  </div>
+</div>
