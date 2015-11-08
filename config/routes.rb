@@ -10,4 +10,6 @@ Rails.application.routes.draw do
   get 'teacher/assignments/:id', to: 'teacher#assignment', as: 'teacher_assignment'
 
   get 'student/dashboard'
+  get 'student/assignments/:id/work', to: 'student#work', as: 'student_activity_work'
+  post 'student/assignments/:id/work', to: 'student#new_work', as: 'new_student_activity_work'
 end
