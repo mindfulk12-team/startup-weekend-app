@@ -11,7 +11,6 @@
           <th>Email</th>
           <th>Assignment Status</th>
           <th>Emotional Health Status</th>
-          <th>Today</th>
         </tr>
       </thead>
       <tbody>
@@ -21,7 +20,6 @@
             <td><%= student.email %></td>
             <td><%= render('partials/boolean', { yes: student.has_done(@last_assignment) }) %></td>
             <td class="emotional-status-cell"><%= largest_hash_key(student.emotional_status)[0] %></td>
-            <td><%= student.score %></td>
           </tr>
         <% end %>
       </tbody>
