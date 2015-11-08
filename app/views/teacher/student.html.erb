@@ -1,6 +1,51 @@
 <div class="container">
   <div class="row-lg-12">
-    <h1>Student: <%= @student.name %></h1>
-    <h2><%= @student.email %></h2>
+    <h1><%= @student.name %></h1>
+
+    <p><strong>Teacher:</strong> <%= @student.teacher.name %></p>
+    <p><strong>Email:</strong> <%= @student.email %></p>
+  </div>
+
+
+  <div class="row">
+    <div class="col-lg-12">
+      <hr>
+      <h3>Assignments</h3>
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Type</th>
+            <th>Due Date</th>
+            <th>Assignment Status</th>
+            <th>View Response</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @teacher.assignments.each do |assignment| %>
+            <tr>
+              <td><%= link_to(assignment.assignment_type, teacher_assignment_path(assignment)) %></td>
+              <td><%= assignment.due %></td>
+              <td><%= render('partials/boolean', { yes: @student.has_done(assignment) }) %></td>
+              <td>
+                <% if @student.has_done(assignment) %>
+                  <%= link_to('View', teacher_activity_path(@student.get_activity(assignment))) %>
+                <% else %>
+                  N/A
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col-lg-12">
+      <hr>
+      <h3>Progress</h3>
+    </div>
   </div>
 </div>

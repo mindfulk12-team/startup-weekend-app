@@ -1,8 +1,12 @@
 class TeacherController < ApplicationController
   def dashboard
     @students = @teacher.students.all
-    # @last_assignment = @teacher.assignments.last
-    @last_assignment = nil
+    @last_assignment = @teacher.assignments.last
+  end
+
+  def activity
+    @activity = @teacher.activities.where(id: params[:id]).first
+    @assignment = @activity.assignment
   end
 
   def activities
@@ -14,5 +18,13 @@ class TeacherController < ApplicationController
 
   def student
     @student = @teacher.students.where(id: params[:id]).first
+  end
+
+  def assignments
+    @assignments = @teacher.assignments.all
+  end
+
+  def assignment
+    @assignment = @teacher.assignments.where(id: params[:id]).first
   end
 end
