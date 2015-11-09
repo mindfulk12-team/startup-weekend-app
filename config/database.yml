@@ -14,3 +14,5 @@ test:
 production:
   <<: *default
   database: mindful_production
+
+host: localhost
